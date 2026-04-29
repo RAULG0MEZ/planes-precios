@@ -1,0 +1,748 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Planes y precios para ayuda personalizada enfocada en atraer pacientes con estrategia digital.">
+  <title>Planes para atraer pacientes | Estrategia digital</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f8f7f2;
+      --surface: #ffffff;
+      --surface-2: #f0f5f2;
+      --ink: #171717;
+      --muted: #626262;
+      --line: #dedbd2;
+      --gold: #b89254;
+      --green: #17634a;
+      --green-2: #0f4737;
+      --blue: #254f9c;
+      --red: #9d3d36;
+      --shadow: 0 18px 48px rgba(21, 21, 21, 0.12);
+      --radius: 8px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      line-height: 1.5;
+    }
+
+    img { max-width: 100%; display: block; }
+
+    button, input { font: inherit; }
+
+    .page {
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .hero {
+      background:
+        linear-gradient(110deg, rgba(23, 23, 23, 0.88), rgba(23, 23, 23, 0.56)),
+        url("https://storage.googleapis.com/msgsndr/cAEl3p2eZROgv2GFvMZM/media/68d2274e448d7b3ee6cc0b0d.png") center/cover;
+      color: #fff;
+      padding: 48px 20px 38px;
+    }
+
+    .hero-inner,
+    .section,
+    .sticky-bar-inner {
+      width: min(1180px, 100%);
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      color: #efd7a8;
+      font-size: 0.82rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      max-width: 930px;
+      margin: 14px 0 14px;
+      font-size: clamp(2.1rem, 6vw, 5.3rem);
+      line-height: 0.95;
+      letter-spacing: 0;
+    }
+
+    .lead {
+      max-width: 760px;
+      margin: 0;
+      color: rgba(255, 255, 255, 0.84);
+      font-size: clamp(1rem, 2.2vw, 1.2rem);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 28px;
+    }
+
+    .btn {
+      border: 1px solid transparent;
+      border-radius: var(--radius);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 44px;
+      padding: 11px 16px;
+      font-weight: 800;
+      text-decoration: none;
+      transition: transform 160ms ease, background 160ms ease, border-color 160ms ease;
+    }
+
+    .btn:hover { transform: translateY(-1px); }
+
+    .btn-primary {
+      background: #fff;
+      color: var(--ink);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.34);
+      color: #fff;
+    }
+
+    .section {
+      padding: 34px 20px;
+    }
+
+    .intro {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(280px, 0.8fr);
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .intro-copy,
+    .iva-panel {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 22px;
+      box-shadow: 0 10px 30px rgba(21, 21, 21, 0.06);
+    }
+
+    .intro h2,
+    .compare-head h2 {
+      margin: 0 0 8px;
+      font-size: clamp(1.7rem, 3vw, 2.45rem);
+      line-height: 1.08;
+      letter-spacing: 0;
+    }
+
+    .intro p,
+    .compare-head p,
+    .tiny {
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .iva-panel {
+      display: grid;
+      gap: 14px;
+      align-content: center;
+    }
+
+    .switch-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      font-weight: 800;
+    }
+
+    .switch {
+      position: relative;
+      width: 64px;
+      height: 34px;
+      flex: 0 0 auto;
+    }
+
+    .switch input {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      cursor: pointer;
+    }
+
+    .slider {
+      position: absolute;
+      inset: 0;
+      border-radius: 999px;
+      background: #c9c5ba;
+      transition: background 180ms ease;
+    }
+
+    .slider::before {
+      content: "";
+      position: absolute;
+      width: 26px;
+      height: 26px;
+      left: 4px;
+      top: 4px;
+      border-radius: 50%;
+      background: #fff;
+      transition: transform 180ms ease;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+    }
+
+    .switch input:checked + .slider { background: var(--green); }
+    .switch input:checked + .slider::before { transform: translateX(30px); }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .plan {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      min-height: 100%;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(21, 21, 21, 0.06);
+    }
+
+    .plan.featured {
+      border-color: var(--gold);
+      box-shadow: var(--shadow);
+    }
+
+    .plan-header {
+      padding: 20px;
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(180deg, #ffffff, #f7f4eb);
+    }
+
+    .badge {
+      display: inline-flex;
+      width: fit-content;
+      border-radius: 999px;
+      background: #e7d5b4;
+      color: #4f3511;
+      padding: 4px 9px;
+      font-size: 0.75rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-bottom: 12px;
+    }
+
+    .plan h3 {
+      margin: 0 0 10px;
+      font-size: 1.28rem;
+    }
+
+    .price {
+      display: flex;
+      align-items: baseline;
+      gap: 4px;
+      margin: 6px 0;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 900;
+      line-height: 1;
+    }
+
+    .price small {
+      font-size: 0.42em;
+      color: var(--muted);
+      font-weight: 800;
+    }
+
+    .price.is-hidden { display: none; }
+
+    .reveal-price {
+      background: transparent;
+      color: var(--green-2);
+      border: 1px dashed var(--green);
+      border-radius: var(--radius);
+      padding: 8px 10px;
+      cursor: pointer;
+      font-weight: 900;
+    }
+
+    .plan-body {
+      padding: 18px 20px 20px;
+      display: grid;
+      gap: 12px;
+      align-content: start;
+    }
+
+    .feature {
+      display: grid;
+      grid-template-columns: 22px 1fr;
+      gap: 10px;
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .feature strong {
+      color: var(--ink);
+      display: block;
+    }
+
+    .icon {
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.78rem;
+      font-weight: 900;
+    }
+
+    .yes { background: #dff1e9; color: var(--green); }
+    .no { background: #eee9df; color: #827a6d; }
+
+    .plan-footer {
+      padding: 0 20px 20px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .finance-toggle {
+      width: 100%;
+      background: var(--green-2);
+      color: #fff;
+      border: 0;
+      border-radius: var(--radius);
+      min-height: 42px;
+      padding: 10px 12px;
+      cursor: pointer;
+      font-weight: 900;
+    }
+
+    .finance {
+      display: none;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: #fff;
+    }
+
+    .finance.show { display: block; }
+
+    .finance-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 10px;
+      padding: 10px 12px;
+      border-bottom: 1px solid var(--line);
+      font-size: 0.9rem;
+    }
+
+    .finance-row:last-child { border-bottom: 0; }
+    .finance-row span:last-child { font-weight: 900; text-align: right; }
+
+    .payments {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      align-items: center;
+      color: var(--muted);
+      font-size: 0.86rem;
+    }
+
+    .payments img {
+      width: auto;
+      height: 20px;
+      filter: grayscale(100%);
+      opacity: 0.78;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .gallery figure {
+      margin: 0;
+      border-radius: var(--radius);
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: #fff;
+    }
+
+    .gallery img {
+      width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+    }
+
+    .gallery figcaption {
+      padding: 9px 10px;
+      font-size: 0.84rem;
+      font-weight: 800;
+    }
+
+    .compare-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      align-items: end;
+      margin-bottom: 16px;
+    }
+
+    .compare-wrap {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow-x: auto;
+      box-shadow: 0 10px 30px rgba(21, 21, 21, 0.06);
+    }
+
+    table {
+      width: 100%;
+      min-width: 820px;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 15px 16px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: #f6f3ea;
+      font-size: 0.88rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    tr:last-child td { border-bottom: 0; }
+
+    td:not(:first-child), th:not(:first-child) {
+      text-align: center;
+    }
+
+    .ok { color: var(--green); font-weight: 900; }
+    .x { color: var(--red); font-weight: 800; }
+    .dim { color: var(--muted); font-size: 0.9rem; }
+
+    .sticky-bar {
+      position: sticky;
+      bottom: 0;
+      z-index: 5;
+      background: rgba(248, 247, 242, 0.88);
+      border-top: 1px solid var(--line);
+      backdrop-filter: blur(14px);
+      padding: 10px 20px;
+    }
+
+    .sticky-bar-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .sticky-bar strong { display: block; }
+    .sticky-bar span { color: var(--muted); font-size: 0.88rem; }
+
+    @media (max-width: 900px) {
+      .intro,
+      .pricing-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .compare-head,
+      .sticky-bar-inner {
+        align-items: start;
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 520px) {
+      .hero { padding-top: 34px; }
+      .section { padding-inline: 14px; }
+      .intro-copy, .iva-panel, .plan-header, .plan-body, .plan-footer { padding-inline: 16px; }
+      .gallery { grid-template-columns: 1fr; }
+      .hero-actions .btn, .sticky-bar .btn { width: 100%; }
+      th, td { padding: 12px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="hero">
+      <div class="hero-inner">
+        <div class="eyebrow">Ayuda personalizada para atraer pacientes</div>
+        <h1>Elige el nivel de acompañamiento para crecer tu consulta con estrategia digital.</h1>
+        <p class="lead">Tres opciones claras: portal, consultas, sesiones individuales, soporte, IA para anuncios y formas de pago. Sin rodeos raros: ves qué incluye cada plan y revelas el precio cuando quieras.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#planes">Ver planes</a>
+          <a class="btn btn-secondary" href="#comparativa">Comparar beneficios</a>
+        </div>
+      </div>
+    </header>
+
+    <section class="section intro" aria-label="Resumen">
+      <div class="intro-copy">
+        <h2>Una decisión más fácil, sin tabla kilométrica de inicio.</h2>
+        <p>Primero revisa qué tanto acompañamiento necesitas. Después activa factura si la ocupas y abre el financiamiento de cada opción. Así queda más limpio, más vendible y menos confuso.</p>
+      </div>
+      <div class="iva-panel">
+        <div class="switch-row">
+          <span>¿Solicitar factura?</span>
+          <label class="switch" title="Activa para ver precios con IVA incluido">
+            <input id="ivaToggle" type="checkbox" aria-label="Mostrar precios con IVA incluido">
+            <span class="slider"></span>
+          </label>
+        </div>
+        <p class="tiny">Activa el switch para ver todos los importes con IVA 16% incluido.</p>
+      </div>
+    </section>
+
+    <section class="section" id="planes" aria-label="Planes y precios">
+      <div class="pricing-grid">
+        <article class="plan featured">
+          <div class="plan-header">
+            <div class="badge">Más completo</div>
+            <h3>Opción 1</h3>
+            <div class="price is-hidden" data-price>
+              $<span data-money data-base="78500" data-iva="91060">78,500</span><small>MXN</small>
+            </div>
+            <button class="reveal-price" type="button">Mostrar valor</button>
+            <p class="tiny">Para quien quiere acompañamiento fuerte durante 3 meses.</p>
+          </div>
+          <div class="plan-body">
+            <div class="feature"><span class="icon yes">✓</span><span><strong>Portal de por vida</strong>Con actualizaciones continuas.</span></div>
+            <div class="feature"><span class="icon yes">✓</span><span><strong>Consultas grupales ilimitadas</strong>Durante 3 meses.</span></div>
+            <div class="feature"><span class="icon yes">✓</span><span><strong>Sesiones individuales ilimitadas</strong>Valor incluido de $31,500.</span></div>
+            <div class="feature"><span class="icon yes">✓</span><span><strong>WhatsApp + IA de anuncios</strong>Soporte e IA incluidos por 3 meses.</span></div>
+          </div>
+          <div class="plan-footer">
+            <button class="finance-toggle" type="button">Ver financiamiento</button>
+            <div class="finance">
+              <div class="finance-row"><span>Pago único</span><span>$<span data-money data-base="78500" data-iva="91060">78,500</span></span></div>
+              <div class="finance-row"><span>3 pagos mensuales (+3%)</span><span>$<span data-money data-base="80855" data-iva="93792">80,855</span></span></div>
+              <div class="finance-row"><span>1er mes 40%</span><span>$<span data-money data-base="32342" data-iva="37517">32,342</span></span></div>
+              <div class="finance-row"><span>2do mes 30%</span><span>$<span data-money data-base="24257" data-iva="28138">24,257</span></span></div>
+              <div class="finance-row"><span>3er mes 30%</span><span>$<span data-money data-base="24257" data-iva="28138">24,257</span></span></div>
+            </div>
+            <div class="payments">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Visa.svg" alt="Visa">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/American_Express_logo_%282018%29.svg" alt="American Express">
+              <span>Transferencia</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="plan">
+          <div class="plan-header">
+            <div class="badge">Balanceado</div>
+            <h3>Opción 2</h3>
+            <div class="price is-hidden" data-price>
+              $<span data-money data-base="58500" data-iva="67860">58,500</span><small>MXN</small>
+            </div>
+            <button class="reveal-price" type="button">Mostrar valor</button>
+            <p class="tiny">Para avanzar con guía grupal y herramientas clave.</p>
+          </div>
+          <div class="plan-body">
+            <div class="feature"><span class="icon yes">✓</span><span><strong>Portal por 6 meses</strong>Materiales y plantillas actualizadas.</span></div>
+            <div class="feature"><span class="icon yes">✓</span><span><strong>Consultas grupales ilimitadas</strong>Durante 1 mes.</span></div>
+            <div class="feature"><span class="icon no">–</span><span><strong>Sesiones individuales opcionales</strong>Disponibles por separado a $3,500 c/u.</span></div>
+            <div class="feature"><span class="icon yes">✓</span><span><strong>WhatsApp + IA de anuncios</strong>Soporte e IA incluidos por 1 mes.</span></div>
+          </div>
+          <div class="plan-footer">
+            <button class="finance-toggle" type="button">Ver financiamiento</button>
+            <div class="finance">
+              <div class="finance-row"><span>Pago único</span><span>$<span data-money data-base="58500" data-iva="67860">58,500</span></span></div>
+              <div class="finance-row"><span>2 pagos mensuales (+5%)</span><span>$<span data-money data-base="61425" data-iva="71253">61,425</span></span></div>
+              <div class="finance-row"><span>1er mes 50%</span><span>$<span data-money data-base="30713" data-iva="35627">30,713</span></span></div>
+              <div class="finance-row"><span>2do mes 50%</span><span>$<span data-money data-base="30713" data-iva="35627">30,713</span></span></div>
+            </div>
+            <div class="payments">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Visa.svg" alt="Visa">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/American_Express_logo_%282018%29.svg" alt="American Express">
+              <span>Transferencia</span>
+            </div>
+          </div>
+        </article>
+
+        <article class="plan">
+          <div class="plan-header">
+            <div class="badge">Entrada</div>
+            <h3>Opción 3</h3>
+            <div class="price is-hidden" data-price>
+              $<span data-money data-base="38500" data-iva="44660">38,500</span><small>MXN</small>
+            </div>
+            <button class="reveal-price" type="button">Mostrar valor</button>
+            <p class="tiny">Para entrar al portal y trabajar con materiales base.</p>
+          </div>
+          <div class="plan-body">
+            <div class="feature"><span class="icon yes">✓</span><span><strong>Portal por 3 meses</strong>Materiales y plantillas durante 90 días.</span></div>
+            <div class="feature"><span class="icon no">–</span><span><strong>Consultas grupales</strong>No incluidas.</span></div>
+            <div class="feature"><span class="icon no">–</span><span><strong>Sesiones individuales</strong>No incluidas.</span></div>
+            <div class="feature"><span class="icon no">–</span><span><strong>WhatsApp + IA de anuncios</strong>No incluidos.</span></div>
+          </div>
+          <div class="plan-footer">
+            <div class="finance show">
+              <div class="finance-row"><span>Pago único</span><span>$<span data-money data-base="38500" data-iva="44660">38,500</span></span></div>
+              <div class="finance-row"><span>Financiamiento</span><span>No disponible</span></div>
+            </div>
+            <div class="payments">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/0/04/Visa.svg" alt="Visa">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/Mastercard-logo.svg" alt="Mastercard">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/American_Express_logo_%282018%29.svg" alt="American Express">
+              <span>Transferencia</span>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" aria-label="Vista del programa">
+      <div class="gallery">
+        <figure>
+          <img loading="lazy" src="https://storage.googleapis.com/msgsndr/cAEl3p2eZROgv2GFvMZM/media/68d2274e448d7b3ee6cc0b0d.png" alt="Portal con contenidos y plantillas">
+          <figcaption>Portal y plantillas</figcaption>
+        </figure>
+        <figure>
+          <img loading="lazy" src="https://storage.googleapis.com/msgsndr/cAEl3p2eZROgv2GFvMZM/media/68d22168448d7b3a8bcb7a47.jpeg" alt="Consulta grupal">
+          <figcaption>Consultas grupales</figcaption>
+        </figure>
+        <figure>
+          <img loading="lazy" src="https://storage.googleapis.com/msgsndr/cAEl3p2eZROgv2GFvMZM/media/68d222aa448d7bbeb2cb968c.webp" alt="Sesiones individuales">
+          <figcaption>Sesiones individuales</figcaption>
+        </figure>
+        <figure>
+          <img loading="lazy" src="https://storage.googleapis.com/msgsndr/cAEl3p2eZROgv2GFvMZM/media/68d2276304a369c9531f8f36.png" alt="IA para anuncios">
+          <figcaption>IA para anuncios</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section" id="comparativa" aria-label="Comparativa completa">
+      <div class="compare-head">
+        <div>
+          <h2>Comparativa rápida</h2>
+          <p>La misma información del ejemplo, pero ordenada para decidir más rápido.</p>
+        </div>
+        <a class="btn btn-secondary" style="background: var(--green-2);" href="#planes">Regresar a planes</a>
+      </div>
+      <div class="compare-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Beneficio</th>
+              <th>Opción 1</th>
+              <th>Opción 2</th>
+              <th>Opción 3</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Acceso al portal</strong></td>
+              <td><span class="ok">De por vida</span><div class="dim">Actualizaciones continuas</div></td>
+              <td><span class="ok">6 meses</span><div class="dim">Materiales y plantillas</div></td>
+              <td><span class="ok">3 meses</span><div class="dim">90 días de acceso</div></td>
+            </tr>
+            <tr>
+              <td><strong>Consultas grupales</strong></td>
+              <td><span class="ok">Ilimitadas, 3 meses</span></td>
+              <td><span class="ok">Ilimitadas, 1 mes</span></td>
+              <td><span class="x">No incluidas</span></td>
+            </tr>
+            <tr>
+              <td><strong>Sesiones individuales</strong></td>
+              <td><span class="ok">Ilimitadas, 3 meses</span><div class="dim">Valor incluido $31,500</div></td>
+              <td><span class="dim">Por separado, $3,500 c/u</span></td>
+              <td><span class="x">No incluidas</span></td>
+            </tr>
+            <tr>
+              <td><strong>Soporte WhatsApp</strong></td>
+              <td><span class="ok">3 meses</span></td>
+              <td><span class="ok">1 mes</span></td>
+              <td><span class="x">No incluido</span></td>
+            </tr>
+            <tr>
+              <td><strong>IA de anuncios</strong></td>
+              <td><span class="ok">Incluida, 3 meses</span></td>
+              <td><span class="ok">Incluida, 1 mes</span></td>
+              <td><span class="x">No incluido</span></td>
+            </tr>
+            <tr>
+              <td><strong>Precio</strong></td>
+              <td><strong>$<span data-money data-base="78500" data-iva="91060">78,500</span> MXN</strong></td>
+              <td><strong>$<span data-money data-base="58500" data-iva="67860">58,500</span> MXN</strong></td>
+              <td><strong>$<span data-money data-base="38500" data-iva="44660">38,500</span> MXN</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <div class="sticky-bar" aria-label="Acceso rapido">
+      <div class="sticky-bar-inner">
+        <div>
+          <strong>¿Quieres verlo con factura?</strong>
+          <span>El switch de IVA cambia todos los importes en la página.</span>
+        </div>
+        <a class="btn btn-primary" href="#planes">Revisar opciones</a>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    const moneyFormatter = new Intl.NumberFormat("es-MX");
+    const ivaToggle = document.querySelector("#ivaToggle");
+
+    function updateMoney() {
+      const key = ivaToggle.checked ? "iva" : "base";
+      document.querySelectorAll("[data-money]").forEach((node) => {
+        node.textContent = moneyFormatter.format(Number(node.dataset[key]));
+      });
+    }
+
+    document.querySelectorAll(".reveal-price").forEach((button) => {
+      button.addEventListener("click", () => {
+        const header = button.closest(".plan-header");
+        header.querySelector("[data-price]").classList.remove("is-hidden");
+        button.remove();
+      });
+    });
+
+    document.querySelectorAll(".finance-toggle").forEach((button) => {
+      button.addEventListener("click", () => {
+        const finance = button.nextElementSibling;
+        finance.classList.toggle("show");
+        button.textContent = finance.classList.contains("show") ? "Ocultar financiamiento" : "Ver financiamiento";
+      });
+    });
+
+    ivaToggle.addEventListener("change", updateMoney);
+    updateMoney();
+  </script>
+</body>
+</html>
