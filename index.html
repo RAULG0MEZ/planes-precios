@@ -10,18 +10,18 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #f6f9fb;
+      --bg: #f2f5f8;
       --surface: #ffffff;
-      --surface-2: #eef6f7;
-      --ink: #16303b;
-      --muted: #61747c;
-      --line: #d9e5e8;
-      --gold: #a9844f;
-      --green: #2f7a72;
-      --green-2: #1f5954;
-      --blue: #34657a;
+      --surface-2: #eaf2fb;
+      --ink: #1f3140;
+      --muted: #5d6f80;
+      --line: #d5dde6;
+      --gold: #3578ba;
+      --green: #2f9de7;
+      --green-2: #1f4f86;
+      --blue: #2f9de7;
       --red: #9d4a42;
-      --shadow: 0 16px 38px rgba(31, 89, 84, 0.12);
+      --shadow: 0 16px 38px rgba(31, 79, 134, 0.14);
       --radius: 8px;
     }
 
@@ -45,9 +45,9 @@
     }
 
     .hero {
-      background: linear-gradient(180deg, #ffffff 0%, #eef6f7 100%);
-      border-bottom: 1px solid var(--line);
-      color: var(--ink);
+      background: linear-gradient(180deg, #2f9de7 0%, #3498e0 100%);
+      border-bottom: 1px solid #3fafea;
+      color: #ffffff;
       padding: 46px 20px 34px;
     }
 
@@ -93,7 +93,7 @@
     }
 
     .eyebrow {
-      color: var(--green-2);
+      color: rgba(255, 255, 255, 0.9);
       font-size: 0.82rem;
       font-weight: 700;
       letter-spacing: 0.08em;
@@ -112,7 +112,7 @@
     .lead {
       max-width: 760px;
       margin: 0;
-      color: var(--muted);
+      color: rgba(255, 255, 255, 0.9);
       font-size: clamp(1rem, 2.2vw, 1.2rem);
     }
 
@@ -146,9 +146,9 @@
     }
 
     .btn-secondary {
-      background: #fff;
-      border-color: var(--line);
-      color: var(--ink);
+      background: rgba(255, 255, 255, 0.1);
+      border-color: rgba(255, 255, 255, 0.45);
+      color: #fff;
     }
 
     .section {
@@ -168,7 +168,7 @@
       border: 1px solid var(--line);
       border-radius: var(--radius);
       padding: 22px;
-      box-shadow: 0 10px 30px rgba(31, 89, 84, 0.06);
+      box-shadow: 0 10px 30px rgba(31, 79, 134, 0.07);
     }
 
     .intro h2,
@@ -256,7 +256,7 @@
       display: grid;
       grid-template-rows: auto 1fr auto;
       overflow: hidden;
-      box-shadow: 0 10px 30px rgba(31, 89, 84, 0.06);
+      box-shadow: 0 10px 30px rgba(31, 79, 134, 0.07);
     }
 
     .plan.featured {
@@ -267,14 +267,14 @@
     .plan-header {
       padding: 20px;
       border-bottom: 1px solid var(--line);
-      background: linear-gradient(180deg, #ffffff, #f2f8f8);
+      background: linear-gradient(180deg, #ffffff, #f2f7fc);
     }
 
     .badge {
       display: inline-flex;
       width: fit-content;
       border-radius: 999px;
-      background: #e2f1ef;
+      background: #e3eefc;
       color: var(--green-2);
       padding: 4px 9px;
       font-size: 0.75rem;
@@ -350,7 +350,7 @@
       font-weight: 700;
     }
 
-    .yes { background: #dff1e9; color: var(--green); }
+    .yes { background: #e3f0fb; color: var(--green-2); }
     .no { background: #eee9df; color: #827a6d; }
 
     .plan-footer {
@@ -393,9 +393,7 @@
     .finance-row:last-child { border-bottom: 0; }
     .finance-row span:last-child { font-weight: 700; text-align: right; }
 
-    .finance-row.msi {
-      background: #f2f8f8;
-    }
+    .finance-row.msi { background: #f2f7fc; }
 
     .finance-label {
       padding: 11px 12px 7px;
@@ -481,7 +479,7 @@
     }
 
     th {
-      background: #edf6f7;
+      background: #edf3fb;
       font-size: 0.88rem;
       text-transform: uppercase;
       letter-spacing: 0.06em;
