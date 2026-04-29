@@ -397,6 +397,17 @@
       background: #f2f8f8;
     }
 
+    .finance-label {
+      padding: 11px 12px 7px;
+      color: var(--green-2);
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      background: #fff;
+      border-bottom: 1px solid var(--line);
+    }
+
     .payments {
       display: flex;
       flex-wrap: wrap;
@@ -595,8 +606,11 @@
           <div class="plan-footer">
             <button class="finance-toggle" type="button">Ver financiamiento</button>
             <div class="finance">
+              <div class="finance-label">Pago de contado</div>
               <div class="finance-row"><span>Pago único</span><span>$<span data-money data-base="78500" data-iva="91060">78,500</span></span></div>
-              <div class="finance-row msi"><span>6 meses sin intereses</span><span>$<span data-money data-base="84500" data-iva="98020">84,500</span></span></div>
+              <div class="finance-label">Tarjeta a meses sin intereses</div>
+              <div class="finance-row msi"><span>6 pagos de $<span data-money data-base="14083.33" data-iva="16336.67">14,083.33</span></span><span>Total $<span data-money data-base="84500" data-iva="98020">84,500</span></span></div>
+              <div class="finance-label">Domiciliación mensual</div>
               <div class="finance-row"><span>3 pagos mensuales (+3%)</span><span>$<span data-money data-base="80855" data-iva="93792">80,855</span></span></div>
               <div class="finance-row"><span>1er mes 40%</span><span>$<span data-money data-base="32342" data-iva="37517">32,342</span></span></div>
               <div class="finance-row"><span>2do mes 30%</span><span>$<span data-money data-base="24257" data-iva="28138">24,257</span></span></div>
@@ -630,8 +644,11 @@
           <div class="plan-footer">
             <button class="finance-toggle" type="button">Ver financiamiento</button>
             <div class="finance">
+              <div class="finance-label">Pago de contado</div>
               <div class="finance-row"><span>Pago único</span><span>$<span data-money data-base="58500" data-iva="67860">58,500</span></span></div>
-              <div class="finance-row msi"><span>3 meses sin intereses</span><span>$<span data-money data-base="63400" data-iva="73544">63,400</span></span></div>
+              <div class="finance-label">Tarjeta a meses sin intereses</div>
+              <div class="finance-row msi"><span>3 pagos de $<span data-money data-base="21133.33" data-iva="24514.67">21,133.33</span></span><span>Total $<span data-money data-base="63400" data-iva="73544">63,400</span></span></div>
+              <div class="finance-label">Domiciliación mensual</div>
               <div class="finance-row"><span>2 pagos mensuales (+5%)</span><span>$<span data-money data-base="61425" data-iva="71253">61,425</span></span></div>
               <div class="finance-row"><span>1er mes 50%</span><span>$<span data-money data-base="30713" data-iva="35627">30,713</span></span></div>
               <div class="finance-row"><span>2do mes 50%</span><span>$<span data-money data-base="30713" data-iva="35627">30,713</span></span></div>
@@ -719,8 +736,13 @@
             </tr>
             <tr>
               <td><strong>Meses sin intereses</strong></td>
-              <td><span class="ok">6 meses</span><div class="dim">Total $<span data-money data-base="84500" data-iva="98020">84,500</span> MXN</div></td>
-              <td><span class="ok">3 meses</span><div class="dim">Total $<span data-money data-base="63400" data-iva="73544">63,400</span> MXN</div></td>
+              <td><span class="ok">6 pagos de $<span data-money data-base="14083.33" data-iva="16336.67">14,083.33</span></span><div class="dim">Total $<span data-money data-base="84500" data-iva="98020">84,500</span> MXN</div></td>
+              <td><span class="ok">3 pagos de $<span data-money data-base="21133.33" data-iva="24514.67">21,133.33</span></span><div class="dim">Total $<span data-money data-base="63400" data-iva="73544">63,400</span> MXN</div></td>
+            </tr>
+            <tr>
+              <td><strong>Domiciliación</strong></td>
+              <td><span class="ok">3 pagos mensuales</span><div class="dim">Total $<span data-money data-base="80855" data-iva="93792">80,855</span> MXN</div></td>
+              <td><span class="ok">2 pagos mensuales</span><div class="dim">Total $<span data-money data-base="61425" data-iva="71253">61,425</span> MXN</div></td>
             </tr>
           </tbody>
         </table>
