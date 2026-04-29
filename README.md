@@ -10,4 +10,8 @@ En GitHub, activa Pages desde:
 
 `Settings` → `Pages` → `Build and deployment` → `Source: GitHub Actions`
 
-Después, cada push a `main` publica la página.
+Este paso es necesario una sola vez. Si no está activado, el workflow falla con:
+
+`Get Pages site failed. Please verify that the repository has Pages enabled`
+
+Después de activarlo, vuelve a correr el workflow o haz otro push a `main`.
